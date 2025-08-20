@@ -22,5 +22,5 @@ jobs:
 
       - name: Show environment
         run: |
-        echo "OS: ${{ runner.os }}"
-        echo "Repository: ${{ github.repository}}"
+        echo "OS: ubuntu-latest"
+        echo "Workflow triggered by: push or pull request"
