@@ -22,5 +22,5 @@ jobs:
 
       - name: Show environment
         run: |
-        echo "운영체제: ${{ runner.os }}"
-        echo "저장소: ${{ github.repository}}"
+        echo "OS: ${{ runner.os }}"
+        echo "Repository: ${{ github.repository}}"
