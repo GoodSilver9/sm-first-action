@@ -1,38 +1,26 @@
-name: Hello World
+name: SM First GitHub Action
 
-on: [push]
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   hello:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v3
-      - run: echo "Hello World!"
-      - run: date
-      - run: pwd
-# name: SM First GitHub Action
+      - name: Chekcout code
+        uses: actions/checkout@v3
 
-# on:
-#   push:
-#     branches: [main]
-#   pull_request:
-#     branches: [main]
+      - name: Say hello
+        run: |
+          echo "안녕하세요! 첫번째 GitHub Action 입니다,"
+          echo "현재 시간: $(date)"
+          echo "실행된 브랜치: ${{ github.ref}}"
 
-# jobs:
-#   hello:
-#     runs-on: ubuntu-latest
-
-#     steps:
-#       - name: Chekcout code
-#         uses: actions/checkout@v3
-
-#       - name: Say hello
-#         run: |
-#           echo "안녕하세요! 첫번째 GitHub Action 입니다,"
-#           echo "현재 시간: $(date)"
-#           echo "실행된 브랜치: ${{ github.ref}}"
-
-#       - name: Show environment
-#         run: |
-#         echo "OS: ubuntu-latest"
-#         echo "Workflow triggered by: push or pull request"
+      - name: Show environment
+        run: |
+          echo "OS: ubuntu-latest"
+          echo "Workflow triggered by: push or pull request"
